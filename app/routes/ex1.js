@@ -7,6 +7,8 @@ const Note = EmberObject.extend({
 
   size: computed('content',function () {
     let content = this.get('content');
+    if(content)
+      this.set('info','Note modifiée');
     let MAX=this.get('MAX');
     return MAX-content.length;
   }),
