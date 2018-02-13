@@ -23,7 +23,7 @@
   <div class="list-group-item">
    <div class="input-group">
      <span class="input-group-addon">
-       <input type="checkbox" aria-label="...">
+        {{input type="checkbox" checked=cancelOnCbClick}} {{if cancelOnCbClick "yes" "no"}}
      </span>
      {{input value=model.promo type="text" class="form-control"}}
    </div>
@@ -32,9 +32,9 @@
     {{model.txRemise}}
   </div>
   <div class="list-group-item">
-  Remise : <span class="badge">{{format-currency model.Remise}}</span>
+  Remise : <span class="badge">{{if cancelOnCbClick  model.Remise ""}}{{format-currency}}</span>
   </div>
   <div class="list-group-item">
-    Total avec remise : <span class="badge">{{format-currency model.TotalFinal}}</span>
+    Total avec remise : <span class="badge">{{if cancelOnCbClick model.TotalFinal model.sumActive}}{{format-currency}}</span>
   </div>
 </div>
